@@ -26,7 +26,7 @@ public class Chatbot
 		this.userName = userName;
 	}
 
-	private void buildMemesList(ArrayList<String> memesLists)wa
+	private void buildMemesList(ArrayList<String> memesLists)
 	{
 		this.memesList = memesList;
 	}
@@ -58,12 +58,12 @@ public class Chatbot
 	{
 		boolean hasLength = false;
 		
-		if (currentInput != null && !currentInput.equals(" "))
+		if (currentInput != null && !currentInput.equals(""))
 		{
 			hasLength = true;
 		}
 		
-		return false;
+		return hasLength;
 	}
 
 	/**
