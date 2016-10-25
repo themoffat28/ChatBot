@@ -1,22 +1,30 @@
 package chat.view;
 
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 public class ChatbotViewer
 {
-
+		private String windowMessage;
+		private ImageIcon chatIcon;
+	
+	public ChatbotViewer()
+	{
+		windowMessage = "This message is brought to you by Chatbot";
+		chatIcon = new ImageIcon(getClass().getResource("images/chatbot"));
+	}
 	public String collectResponse(String question)
 	{
 		String response = "";
 		
-		response = JOptionPane.showInputDialog(null, question);
+		response = JOptionPane.showInputDialog(null, question, windowMessage, JOptionPane.INFORMATION_MESSAGE, chatIcon, null, "Type here please").toString();
 		
 		return response;
 	}
 	
 	public void displayMessage(String message)
 	{
-		JOptionPane.showMessageDialog(null, message);
+		JOptionPane.showMessageDialog(null, message, windowMessage, JOptionPane.PLAIN_MESSAGE, chatIcon);
 	}
 	
 	public int collectUserOption(String question)
