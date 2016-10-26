@@ -147,7 +147,7 @@ public class Chatbot
 		boolean meme = true;
 		for (String currentMeme: memesList)
 		{
-			if(currentInput.contains("memes"))
+			if(currentInput.contains(currentMeme))
 			meme = true;
 		}
 		
