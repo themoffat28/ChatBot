@@ -31,9 +31,9 @@ public class ChatbotController
 	
 	private String useChatbotCheckers(String input)
 	{
-		String checkedInput = "I haven't learned about " + input + " yet, sorry.. lets talk about something else!";
+		String checkedInput = "";
 		
-		if(stupidBot.memeChecker (input = "memes"))
+		if(stupidBot.memeChecker (input))
 		{
 			checkedInput += "\nYou like memes!?\n";
 		}

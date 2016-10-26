@@ -32,6 +32,7 @@ public class Chatbot
 
 	private void buildMemesList()
 	{
+		memesList.add("memes");
 		memesList.add("doge");
 		memesList.add("cute animals");
 		memesList.add("grumpy cat");
@@ -144,14 +145,16 @@ public class Chatbot
 	 */
 	public boolean memeChecker(String currentInput)
 	{
-		boolean meme = true;
+		boolean hasMeme = false;
 		for (String currentMeme: memesList)
 		{
 			if(currentInput.contains(currentMeme))
-			meme = true;
+			{
+				hasMeme = true;
+			}
 		}
 		
-		return meme;
+		return hasMeme;
 	}
 
 	/**
