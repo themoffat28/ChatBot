@@ -144,9 +144,14 @@ public class Chatbot
 	 */
 	public boolean memeChecker(String currentInput)
 	{
-		boolean memesList = false;
+		boolean meme = true;
+		for (String currentMeme: memesList)
+		{
+			if(currentInput.contains("memes"))
+			meme = true;
+		}
 		
-		return memesList;
+		return meme;
 	}
 
 	/**
