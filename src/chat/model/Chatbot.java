@@ -29,6 +29,43 @@ public class Chatbot
 		this.userName = userName;
 		this.content = "WWII";
 	}
+	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean mashChecker = false;
+		
+		if(currentInput.equals("S.D.F"))
+		{
+			mashChecker = false;
+		}
+		
+		if(currentInput.equals("derf"))
+		{
+			mashChecker = false;
+		}
+		
+		if(currentInput.equals("sdf"))
+		{
+			mashChecker = true;
+		}
+		
+		if(currentInput.equals("dfg"))
+		{
+			mashChecker = true;
+		}
+		
+		if(currentInput.equals("cvb"))
+		{
+			mashChecker = true;
+		}
+		
+		if(currentInput.equals(",./"))
+		{
+			mashChecker = true;
+		}
+		
+		return mashChecker;
+	}
 
 	private void buildMemesList()
 	{
@@ -75,6 +112,7 @@ public class Chatbot
 		politicalTopicList.add("emails");
 		politicalTopicList.add("corrupt");
 	}
+
 
 	/**
 	 * * Checks the length of the supplied string. Returns false if the supplied
