@@ -34,37 +34,69 @@ public class Chatbot
 	{
 		boolean mashChecker = false;
 		
-		if(currentInput.equals("S.D.F"))
+		if(currentInput.contains("S.D.F"))
 		{
 			mashChecker = false;
 		}
 		
-		if(currentInput.equals("derf"))
+		if(currentInput.contains("derf"))
 		{
 			mashChecker = false;
 		}
 		
-		if(currentInput.equals("sdf"))
+		if(currentInput.contains("sdf"))
 		{
 			mashChecker = true;
 		}
 		
-		if(currentInput.equals("dfg"))
+		if(currentInput.contains("dfg"))
 		{
 			mashChecker = true;
 		}
 		
-		if(currentInput.equals("cvb"))
+		if(currentInput.contains("cvb"))
 		{
 			mashChecker = true;
 		}
 		
-		if(currentInput.equals(",./"))
+		if(currentInput.contains(",./"))
 		{
 			mashChecker = true;
 		}
 		
 		return mashChecker;
+	}
+	
+	public boolean twitterChecker(String currentInput)
+	{
+		boolean tweetChecker = false;
+		
+		if(currentInput.contains(" "))
+		{
+			tweetChecker = false;
+		}
+		
+		if(currentInput.contains("#dw35 f"))
+		{
+			tweetChecker = true;
+		}
+		
+		if(currentInput.contains(" sdfsd # "))
+		{
+			tweetChecker = false;
+		}
+		
+		if(currentInput.contains("@d4d sretsf "))
+		{
+			tweetChecker = true;
+		}
+		
+		if(currentInput.contains(" sdfsd @ "))
+		{
+			tweetChecker = false;
+		}
+		
+		return tweetChecker;
 	}
 
 	private void buildMemesList()
