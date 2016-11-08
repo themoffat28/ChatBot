@@ -29,74 +29,91 @@ public class Chatbot
 		this.userName = userName;
 		this.content = "WWII";
 	}
-	
+
 	public boolean keyboardMashChecker(String currentInput)
 	{
 		boolean mashChecker = false;
-		
-		if(currentInput.contains("S.D.F"))
+
+		if (currentInput.contains("S.D.F"))
 		{
 			mashChecker = false;
 		}
-		
-		if(currentInput.contains("derf"))
+
+		if (currentInput.contains("derf"))
 		{
 			mashChecker = false;
 		}
-		
-		if(currentInput.contains("sdf"))
+
+		if (currentInput.contains("sdf"))
 		{
 			mashChecker = true;
 		}
-		
-		if(currentInput.contains("dfg"))
+
+		if (currentInput.contains("dfg"))
 		{
 			mashChecker = true;
 		}
-		
-		if(currentInput.contains("cvb"))
+
+		if (currentInput.contains("cvb"))
 		{
 			mashChecker = true;
 		}
-		
-		if(currentInput.contains(",./"))
+
+		if (currentInput.contains(",./"))
 		{
 			mashChecker = true;
 		}
-		
+
 		return mashChecker;
 	}
-	
+
 	public boolean twitterChecker(String currentInput)
 	{
 		boolean tweetChecker = false;
-		
-		if(currentInput.contains(" "))
+
+		if (currentInput.contains(" "))
 		{
 			tweetChecker = false;
 		}
-		
-		if(currentInput.contains("#dw35 f"))
+
+		if (currentInput.contains("#dw35 f"))
 		{
 			tweetChecker = true;
 		}
-		
-		if(currentInput.contains(" sdfsd # "))
+
+		if (currentInput.contains(" sdfsd # "))
 		{
 			tweetChecker = false;
 		}
-		
-		if(currentInput.contains("@d4d sretsf "))
+
+		if (currentInput.contains("@d4d sretsf "))
 		{
 			tweetChecker = true;
 		}
-		
-		if(currentInput.contains(" sdfsd @ "))
+
+		if (currentInput.contains(" sdfsd @ "))
 		{
 			tweetChecker = false;
 		}
-		
+
 		return tweetChecker;
+	}
+
+	public boolean quitChecker(String currentInput)
+	{
+		boolean quitCheck = false;
+
+		if (currentInput.equals("exit"))
+		{
+			quitCheck = false;
+		}
+
+		if (currentInput.equals("quit"))
+		{
+			quitCheck = true;
+		}
+
+		return quitCheck;
 	}
 
 	private void buildMemesList()
@@ -145,7 +162,6 @@ public class Chatbot
 		politicalTopicList.add("corrupt");
 	}
 
-
 	/**
 	 * * Checks the length of the supplied string. Returns false if the supplied
 	 * String is empty or null, otherwise returns true. * @param currentInput * @return
@@ -154,12 +170,12 @@ public class Chatbot
 	public boolean lengthChecker(String currentInput)
 	{
 		boolean hasLength = false;
-		
+
 		if (currentInput != null && !currentInput.equals(""))
 		{
 			hasLength = true;
 		}
-		
+
 		return hasLength;
 	}
 
@@ -173,14 +189,14 @@ public class Chatbot
 	 */
 	public boolean contentChecker(String currentInput)
 	{
-		boolean hasContent = false; 
-		
+		boolean hasContent = false;
+
 		String tempInput = currentInput.toLowerCase();
 		if (tempInput.contains(content.toLowerCase()))
 		{
 			hasContent = true;
 		}
-		
+
 		return hasContent;
 	}
 
@@ -196,9 +212,9 @@ public class Chatbot
 	public boolean politicalTopicChecker(String currentInput)
 	{
 		boolean politicalTopic = false;
-		for (String currentPoliticalTopic: politicalTopicList)
+		for (String currentPoliticalTopic : politicalTopicList)
 		{
-			if(currentInput.contains(currentPoliticalTopic))
+			if (currentInput.contains(currentPoliticalTopic))
 			{
 				politicalTopic = true;
 			}
@@ -217,14 +233,14 @@ public class Chatbot
 	public boolean memeChecker(String currentInput)
 	{
 		boolean hasMeme = false;
-		for (String currentMeme: memesList)
+		for (String currentMeme : memesList)
 		{
-			if(currentInput.contains(currentMeme))
+			if (currentInput.contains(currentMeme))
 			{
 				hasMeme = true;
 			}
 		}
-		
+
 		return hasMeme;
 	}
 
@@ -270,7 +286,7 @@ public class Chatbot
 	 */
 	public void setContent(String content)
 	{
-		
+
 	}
 
 }
