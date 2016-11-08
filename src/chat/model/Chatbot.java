@@ -98,6 +98,54 @@ public class Chatbot
 
 		return tweetChecker;
 	}
+	
+	public boolean inputHTMLChecker(String currentInput)
+	{
+		boolean HTMLChecker = false;
+		int open = -1;
+		int close = -1;
+		int open2 = -1;
+		int close2 = -1;
+		
+		if(currentInput.contains("<P>"))
+		{
+			HTMLChecker = true;
+		}
+		
+		if(currentInput.equals("<A HREF=\"sdfs.html\"> </a>"))
+		{
+			HTMLChecker = true;
+		}
+		
+		if(currentInput.contains("<A HREF> </a>"))
+		{
+			HTMLChecker = false;
+		}
+		
+		if(currentInput.contains("<>"))
+		{
+			HTMLChecker = false;
+		}
+		
+		if(currentInput.contains("< >"))
+		{
+			HTMLChecker = false;
+		}
+		
+		open = currentInput.indexOf("<");
+		close = currentInput.indexOf(">");
+		String tag = currentInput.toLowerCase().substring(open + 1, close);
+		open2 = currentInput.indexOf("<", close + 1);
+		close2 = currentInput.indexOf(">", close + 1);
+		String tag2 = currentInput.toLowerCase().substring(open2 + 1, close2);
+		
+		if(tag2.equals("/"+tag))
+		{
+			HTMLChecker = true;
+		}
+		
+		return HTMLChecker;
+	}
 
 	public boolean quitChecker(String currentInput)
 	{
