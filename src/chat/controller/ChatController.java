@@ -2,16 +2,19 @@ package chat.controller;
 
 import chat.model.Chatbot;
 import chat.view.ChatbotViewer;
+import chat.view.ChatFrame;
 
 public class ChatController
 {
 	private Chatbot stupidBot;
 	private ChatbotViewer display;
+	private ChatFrame appFrame;
 	
 	public ChatController()
 	{
 		stupidBot = new Chatbot("Automated intelligence conversation machine");
 		display = new ChatbotViewer();
+		appFrame = new ChatFrame(this);
 	}
 	
 	
@@ -33,9 +36,35 @@ public class ChatController
 	{
 		String checkedInput = "";
 		
-		if(stupidBot.memeChecker (input))
+		if(stupidBot.memeChecker(input))
 		{
-			checkedInput += "\nYou like memes!?\n";
+			checkedInput += "\nYou like memes!? Tell me more.\n";
+			
+		if(stupidBot.politicalTopicChecker(input))	
+		{
+			checkedInput += "\nPolitics are fun to talk about!\n";
+		}
+		
+		if(stupidBot.keyboardMashChecker(input))
+		{
+			checkedInput += "\nStop hitting your keyboard, it did nothing to you\n";
+		}
+		
+		if(stupidBot.inputHTMLChecker(input))
+		{
+			checkedInput += "\nThis is a ChatBot, not a web viewer. Go back to Google\n";
+		}
+		
+		if(stupidBot.twitterChecker(input))
+		{
+			checkedInput += "\nYou're on the wrong app my friend. This isnt social media.\n";
+		}
+		
+		if(stupidBot.quitChecker(input))
+		{
+			checkedInput += "\nYou're leaving me now? When I need you the most?\n";
+		}
+		
 		}
 		if(stupidBot.contentChecker(input))
 		{
@@ -44,7 +73,7 @@ public class ChatController
 		
 		if(checkedInput.length() == 0)
 		{
-			checkedInput = "I have no idea what" + input + " is.";
+			checkedInput = "I have no idea what " + input + " is.";
 		}
 		return checkedInput;
 	}
