@@ -239,8 +239,8 @@ public class Chatbot
 	{
 		boolean hasContent = false;
 
-		String tempInput = currentInput.toLowerCase();
-		if (tempInput.contains(content.toLowerCase()))
+		
+		if (currentInput.toLowerCase().contains(content.toLowerCase()))
 		{
 			hasContent = true;
 		}
@@ -334,7 +334,7 @@ public class Chatbot
 	 */
 	public void setContent(String content)
 	{
-
+		this.content = content;
 	}
 
 }

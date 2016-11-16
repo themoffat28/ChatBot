@@ -13,14 +13,13 @@ public class ChatController
 	public ChatController()
 	{
 		stupidBot = new Chatbot("Automated intelligence conversation machine");
-		display = new ChatbotViewer();
 		appFrame = new ChatFrame(this);
 	}
 	
 	
 	public void start()
 	{
-		String response = display.collectResponse("What do you want to talk about?");
+		/**String response = display.collectResponse("What do you want to talk about?");
 		
 		while(stupidBot.lengthChecker(response))
 		{
@@ -29,10 +28,11 @@ public class ChatController
 			
 			
 		}
-		
+		*/
 	}
 	
-	private String useChatbotCheckers(String input)
+	public String useChatbotCheckers(String input)
+
 	{
 		String checkedInput = "";
 		
@@ -78,4 +78,20 @@ public class ChatController
 		return checkedInput;
 	}
 
+	public ChatFrame getBaseFrame()
+	{
+		return appFrame;
+	}
+	
+	public Chatbot getChatbot()
+	{
+		return stupidBot;
+	}
+	
+	public String communicateWithChatbot(String userText)
+	{
+		String botText = "";
+		
+		return botText;
+	}
 }
