@@ -71,11 +71,54 @@ public class ChatController
 			checkedInput += "\nYou have found my secret topic!\n";
 		}
 		
-		if(checkedInput.length() == 0)
+		if(!stupidBot.lengthChecker(checkedInput))
 		{
 			checkedInput = "I have no idea what " + input + " is.";
 		}
+		
+		int canBeRandom = (int) (Math.random() * 7);
+		if(canBeRandom % 7 == 0)
+		{
+			checkedInput += randomTopicGenerator();
+		}
+		
 		return checkedInput;
+	}
+	
+	private String randomTopicGenerator()
+	{
+		String randomTopic = "";
+		int random = (int) (Math.random() * 7);
+		
+		switch(random)
+		{
+		case 0:
+			randomTopic = "Have you heard Tory Lanez version of Controller (by Drake)? 🙏🙌😩";
+			break;
+		case 1:
+			randomTopic = "I'm in the mood for some Mexican food.";
+			break;
+		case 2:
+			randomTopic = "I can't wait to become a real person like you.";
+			break;
+		case 3:
+			randomTopic = "Can you guess my secret topic? Hint** It was a historical point.";
+			break;	
+		case 4:
+			randomTopic = "Fam.. don't look behind you.";
+			break;	
+		case 5:
+			randomTopic = "What do you think about Harambe?";
+			break;
+		case 6:
+			randomTopic = "Trump or nah?";
+			break;	
+		default:
+			randomTopic = "If you're seeing this, something went terribly wrong... 😬 ";
+			break;
+		}
+		
+		return randomTopic;
 	}
 
 	public ChatFrame getBaseFrame()
