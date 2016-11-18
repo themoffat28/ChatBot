@@ -71,7 +71,7 @@ public class ChatController
 			checkedInput += "\nYou have found my secret topic!\n";
 		}
 		
-		if(!stupidBot.lengthChecker(checkedInput))
+		if(checkedInput.length() == 0)
 		{
 			checkedInput = "I have no idea what " + input + " is.";
 		}

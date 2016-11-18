@@ -70,31 +70,50 @@ public class Chatbot
 	public boolean twitterChecker(String currentInput)
 	{
 		boolean tweetChecker = false;
+		int hashtagStart = -1;
+		int hashtagEnd = -1;
+		int atStart = -1;
+		int atEnd = -1;
 
-		if (currentInput.contains(" "))
+		if (currentInput.equals(" "))
 		{
 			tweetChecker = false;
 		}
 
-		if (currentInput.contains("#dw35 f"))
+		hashtagStart = currentInput.indexOf("#");
+		
+		if (hashtagStart > -1)
 		{
-			tweetChecker = true;
+			hashtagEnd = currentInput.indexOf(" ", hashtagStart + 1);
 		}
-
-		if (currentInput.contains(" sdfsd # "))
+		
+			if (hashtagEnd > 0)
+			{
+				String hashtag = currentInput.toLowerCase().substring(hashtagStart, hashtagEnd);
+				
+				if (!hashtag.equals("#"))
+				{
+					tweetChecker = true;
+				}
+				
+		}
+	
+	atStart = currentInput.indexOf("@");
+	
+	if (atStart > -1)
+	{
+		atEnd = currentInput.indexOf(" ", atStart + 1);
+		
+		if (atEnd > 0)
 		{
-			tweetChecker = false;
+			String at = currentInput.toLowerCase().substring(atStart, atEnd);
+			
+			if (!at.equals("@"))
+			{
+				tweetChecker = true;
+			}
 		}
-
-		if (currentInput.contains("@d4d sretsf "))
-		{
-			tweetChecker = true;
-		}
-
-		if (currentInput.contains(" sdfsd @ "))
-		{
-			tweetChecker = false;
-		}
+	}
 
 		return tweetChecker;
 	}
