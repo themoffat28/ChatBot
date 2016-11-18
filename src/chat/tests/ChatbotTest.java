@@ -8,7 +8,8 @@ import org.junit.Test;
 import chat.model.Chatbot;
 
 /**
- * Class designed for testing the Chatbot object with JUnit. 
+ * Class designed for testing the Chatbot object with JUnit.
+ * 
  * @author Cody Henrichsen
  * @version 1.5
  */
@@ -34,7 +35,7 @@ public class ChatbotTest
 	@Test
 	public void testChatbot()
 	{
-		assertNotNull("The memesList is not initialized",sampleBot.getMemesList());
+		assertNotNull("The memesList is not initialized", sampleBot.getMemesList());
 		assertNotNull("The politicalTopicsList is not initialized", sampleBot.getPoliticalTopicList());
 		assertSame("The Chatbot’s username is not being assigned", userName, sampleBot.getUserName());
 	}
@@ -64,7 +65,7 @@ public class ChatbotTest
 	{
 		assertNotNull("Constructors and Getters still work in Java", sampleBot.getPoliticalTopicList());
 	}
-	
+
 	@Test
 	public void testSetContent()
 	{
@@ -74,11 +75,11 @@ public class ChatbotTest
 		assertNotSame("Changed values", oldContent, sampleBot.getContent());
 		assertSame("Setters work", content, sampleBot.getContent());
 	}
-	
+
 	@Test
 	public void testLengthChecker()
 	{
-		assertFalse("incorrect zero length check",sampleBot.lengthChecker(""));
+		assertFalse("incorrect zero length check", sampleBot.lengthChecker(""));
 		assertFalse("incorrect null check", sampleBot.lengthChecker(null));
 		assertTrue("incorrect length check", sampleBot.lengthChecker("        "));
 	}
@@ -95,7 +96,7 @@ public class ChatbotTest
 		assertTrue("Check match plus failed", sampleBot.contentChecker("content " + content));
 		assertTrue("Opposite check match failed", sampleBot.contentChecker(content + " other content"));
 	}
-	
+
 	@Test
 	public void testBuildMemesList()
 	{
@@ -111,7 +112,7 @@ public class ChatbotTest
 		assertTrue("Meme Topic check", sampleBot.getMemesList().contains("john cena"));
 
 	}
-	
+
 	@Test
 	public void testBuildPoliticalTopicList()
 	{
@@ -121,7 +122,7 @@ public class ChatbotTest
 		assertFalse("Political Topic check - wrong date", sampleBot.getPoliticalTopicList().contains("11/4/16"));
 		assertTrue("Political Topic check", sampleBot.getPoliticalTopicList().contains("11/8/16"));
 		assertFalse("Political Topic check - case", sampleBot.getPoliticalTopicList().contains("republican"));
-		assertFalse("Political Topic check - case", sampleBot.getPoliticalTopicList().contains("democrat"));				
+		assertFalse("Political Topic check - case", sampleBot.getPoliticalTopicList().contains("democrat"));
 		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("liberal"));
 		assertTrue("Political Topic check", sampleBot.getPoliticalTopicList().contains("conservative"));
 		assertTrue("Political Topic check", sampleBot.getPoliticalTopicList().contains("Clinton"));
@@ -134,7 +135,6 @@ public class ChatbotTest
 
 	}
 
-	
 	@Test
 	public void testKeyboardMashChecker()
 	{
@@ -175,7 +175,7 @@ public class ChatbotTest
 		assertTrue("Incorrect meme Topic check", sampleBot.memeChecker("john cena"));
 		assertFalse("Incorrect meme Topic check", sampleBot.memeChecker("john"));
 	}
-	
+
 	@Test
 	public void testInputHTMLChecker()
 	{
@@ -188,7 +188,7 @@ public class ChatbotTest
 		assertTrue("Valid tag fail", sampleBot.inputHTMLChecker("<A HREF=\"sdfs.html\"> </a>"));
 		assertFalse("Incomplete tag fail - no = for the linked file", sampleBot.inputHTMLChecker("<A HREF> </a>"));
 	}
-	
+
 	@Test
 	public void testTwitterChecker()
 	{
@@ -198,7 +198,7 @@ public class ChatbotTest
 		assertTrue("Twitter user detect fail", sampleBot.twitterChecker("@d4d sretsf "));
 		assertFalse("Empty user fail", sampleBot.twitterChecker(" sdfsd @ "));
 	}
-	
+
 	@Test
 	public void testQuitChecker()
 	{

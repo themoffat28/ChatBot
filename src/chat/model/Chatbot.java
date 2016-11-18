@@ -106,20 +106,24 @@ public class Chatbot
 		int close = -1;
 		int open2 = -1;
 		int close2 = -1;
+		int HREFStart = currentInput.toLowerCase().indexOf("<A HREF=\"".toLowerCase());
+		int HREFEnd = currentInput.indexOf("\"", HREFStart + 9);
+		int HREFCheck = -1;
 		
 		if(currentInput.contains("<P>"))
 		{
 			HTMLChecker = true;
 		}
 		
-		if(currentInput.equals("<A HREF=\"sdfs.html\"> </a>"))
+		if(currentInput.length() > 9 && HREFStart > -1 && HREFEnd > -1)
 		{
-			HTMLChecker = true;
-		}
-		
-		if(currentInput.contains("<A HREF> </a>"))
-		{
-			HTMLChecker = false;
+			String HREF = currentInput.toLowerCase().substring(HREFStart + 9, HREFEnd);
+			HREFCheck = currentInput.toLowerCase().indexOf("</a>".toLowerCase(), HREFEnd + 1);
+			
+			if (!HREF.equals(" ") && HREFCheck > 0)
+			{
+				HTMLChecker = true;
+			}
 		}
 		
 		if(currentInput.contains("<>"))
@@ -134,14 +138,21 @@ public class Chatbot
 		
 		open = currentInput.indexOf("<");
 		close = currentInput.indexOf(">");
-		String tag = currentInput.toLowerCase().substring(open + 1, close);
-		open2 = currentInput.indexOf("<", close + 1);
-		close2 = currentInput.indexOf(">", close + 1);
-		String tag2 = currentInput.toLowerCase().substring(open2 + 1, close2);
-		
-		if(tag2.equals("/"+tag))
+		if (close > -1 && open > -1 && open < close)
 		{
-			HTMLChecker = true;
+			String tag = currentInput.toLowerCase().substring(open + 1, close);
+			open2 = currentInput.indexOf("<", close + 1);
+			close2 = currentInput.indexOf(">", close + 1);
+			
+			if (close > -1 && open2 > -1 && open2 < close2)
+			{
+				String tag2 = currentInput.toLowerCase().substring(open2 + 1, close2);
+				
+				if(tag2.equals("/"+tag))
+				{
+					HTMLChecker = true;
+				}
+			}
 		}
 		
 		return HTMLChecker;
@@ -196,6 +207,7 @@ public class Chatbot
 		politicalTopicList.add("liberal");
 		politicalTopicList.add("conservative");
 		politicalTopicList.add("Clinton");
+		politicalTopicList.add("Hillary");
 		politicalTopicList.add("Trump");
 		politicalTopicList.add("Kaine");
 		politicalTopicList.add("Pence");
