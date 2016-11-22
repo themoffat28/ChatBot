@@ -9,6 +9,12 @@ import java.util.ArrayList;
  * Students will complete methods as part * of the project. * @author Cody
  * Henrichsen * @version 1.0 10/14/15
  */
+
+/**
+ * Data members of Chatbot (memesList, politicalTopicList, userName, and content).
+ * @author bmof0507
+ *
+ */
 public class Chatbot
 {
 	private ArrayList<String> memesList;
@@ -30,6 +36,11 @@ public class Chatbot
 		this.content = "WWII";
 	}
 
+	/**
+	 * Method keyboardMashChecker checks for userInput that matches items in the list of keyboard mashes.
+	 * @param currentInput
+	 * @return
+	 */
 	public boolean keyboardMashChecker(String currentInput)
 	{
 		boolean mashChecker = false;
@@ -67,6 +78,11 @@ public class Chatbot
 		return mashChecker;
 	}
 
+	/**
+	 * twitterChecker checks userInput for items that may relate to Twitter.
+	 * @param currentInput
+	 * @return
+	 */
 	public boolean twitterChecker(String currentInput)
 	{
 		boolean tweetChecker = false;
@@ -118,6 +134,11 @@ public class Chatbot
 		return tweetChecker;
 	}
 	
+	/**
+	 * Method inputHTMLChecker checks userInput for items in the list of HTML checker and will respond accordingly.
+	 * @param currentInput
+	 * @return
+	 */
 	public boolean inputHTMLChecker(String currentInput)
 	{
 		boolean HTMLChecker = false;
@@ -177,6 +198,11 @@ public class Chatbot
 		return HTMLChecker;
 	}
 
+	/**
+	 * Method quitchecker checks if user wants to leave the program and acts accordingly if Input is entered.
+	 * @param currentInput
+	 * @return
+	 */
 	public boolean quitChecker(String currentInput)
 	{
 		boolean quitCheck = false;

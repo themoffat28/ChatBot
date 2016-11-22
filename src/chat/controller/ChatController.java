@@ -5,23 +5,38 @@ import chat.view.ChatbotViewer;
 import chat.view.ChatFrame;
 
 public class ChatController
+/**
+ * ChatController Methods (Chatbot, ChatbotViewer, and ChatFrame).
+ */
 {
 	private Chatbot stupidBot;
 	private ChatbotViewer display;
 	private ChatFrame appFrame;
 	
+	/**
+	 * stupidBot and appFrame are defined. 
+	 */
 	public ChatController()
 	{
 		stupidBot = new Chatbot("Automated intelligence conversation machine");
 		appFrame = new ChatFrame(this);
 	}
 	
-	
+	/**
+	 * Start Method.
+	 */
 	public void start()
 	{
 		
 	}
 	
+	
+	/**
+	 * Method useChatbotCheckers assigns answers with a sequence of if's.
+	 * If the users input falls into a predetermined topic, the chatbot will recognize and answer to it.
+	 * @param input
+	 * @return
+	 */
 	public String useChatbotCheckers(String input)
 
 	{
@@ -81,7 +96,12 @@ public class ChatController
 	}
 		return checkedInput;
 	}
-		
+	
+	/**
+	 * Method randomTopicGenerator will ask random topic questions to keep the conversation going.
+	 * The method will ask a random question from the list at random times.
+	 * @return
+	 */
 	private String randomTopicGenerator()
 	{
 		String randomTopic = "";
@@ -118,16 +138,29 @@ public class ChatController
 		return randomTopic;
 	}
 
+	/**
+	 * Method getBaseFrame returns appFrame.
+	 * @return
+	 */
 	public ChatFrame getBaseFrame()
 	{
 		return appFrame;
 	}
 	
+	/**
+	 * Method getChatbot returns stupidBot.
+	 * @return
+	 */
 	public Chatbot getChatbot()
 	{
 		return stupidBot;
 	}
 	
+	/**
+	 * Method communicateWithChatbot returns botText and assigns the chatbot to answer " " when this method is triggered. 
+	 * @param userText
+	 * @return
+	 */
 	public String communicateWithChatbot(String userText)
 	{
 		String botText = "";
