@@ -19,72 +19,69 @@ public class ChatController
 	
 	public void start()
 	{
-		/**String response = display.collectResponse("What do you want to talk about?");
 		
-		while(stupidBot.lengthChecker(response))
-		{
-			display.displayMessage(useChatbotCheckers(response));
-			response = display.collectResponse("You want to talk about " + response +"? You start. ");
-			
-			
-		}
-		*/
 	}
 	
 	public String useChatbotCheckers(String input)
 
 	{
 		String checkedInput = "";
-		
-		if(stupidBot.memeChecker(input))
+		if(!stupidBot.quitChecker(input))
 		{
-			checkedInput += "\nYou like memes!? Tell me more.\n";
+			if(stupidBot.memeChecker(input))
+			{
+				checkedInput += "\nYou like memes!? Tell me more.\n";
+				
+			if(stupidBot.politicalTopicChecker(input))	
+			{
+				checkedInput += "\nPolitics are fun to talk about!\n";
+			}
 			
-		if(stupidBot.politicalTopicChecker(input))	
-		{
-			checkedInput += "\nPolitics are fun to talk about!\n";
+			if(stupidBot.keyboardMashChecker(input))
+			{
+				checkedInput += "\nStop hitting your keyboard, it did nothing to you\n";
+			}
+			
+			if(stupidBot.inputHTMLChecker(input))
+			{
+				checkedInput += "\nThis is a ChatBot, not a web viewer. Go back to Google\n";
+			}
+			
+			if(stupidBot.twitterChecker(input))
+			{
+				checkedInput += "\nYou're on the wrong app my friend. This isnt social media.\n";
+			}
+			
+			if(stupidBot.quitChecker(input))
+			{
+				checkedInput += "\nYou're leaving me now? When I need you the most?\n";
+			}
+			
+			}
+			if(stupidBot.contentChecker(input))
+			{
+				checkedInput += "\nYou have found my secret topic!\n";
+			}
+			
+			if(checkedInput.length() == 0)
+			{
+				checkedInput = "I have no idea what " + input + " is.";
+			}
+			
+			int canBeRandom = (int) (Math.random() * 7);
+			if(canBeRandom % 7 == 0)
+			{
+				checkedInput += randomTopicGenerator();
+			}
 		}
-		
-		if(stupidBot.keyboardMashChecker(input))
-		{
-			checkedInput += "\nStop hitting your keyboard, it did nothing to you\n";
-		}
-		
-		if(stupidBot.inputHTMLChecker(input))
-		{
-			checkedInput += "\nThis is a ChatBot, not a web viewer. Go back to Google\n";
-		}
-		
-		if(stupidBot.twitterChecker(input))
-		{
-			checkedInput += "\nYou're on the wrong app my friend. This isnt social media.\n";
-		}
-		
-		if(stupidBot.quitChecker(input))
-		{
-			checkedInput += "\nYou're leaving me now? When I need you the most?\n";
-		}
-		
-		}
-		if(stupidBot.contentChecker(input))
-		{
-			checkedInput += "\nYou have found my secret topic!\n";
-		}
-		
-		if(checkedInput.length() == 0)
-		{
-			checkedInput = "I have no idea what " + input + " is.";
-		}
-		
-		int canBeRandom = (int) (Math.random() * 7);
-		if(canBeRandom % 7 == 0)
-		{
-			checkedInput += randomTopicGenerator();
-		}
-		
+		else
+	{
+		display.displayMessage("Thanks for chatting!");
+		System.exit(0);
+	}
 		return checkedInput;
 	}
-	
+		
 	private String randomTopicGenerator()
 	{
 		String randomTopic = "";
