@@ -4,9 +4,14 @@ import chat.model.Chatbot;
 import chat.view.ChatbotViewer;
 import chat.view.ChatFrame;
 
+/**
+ * Class ChatController.
+ * @author bmof0507
+ *
+ */
 public class ChatController
 /**
- * ChatController Methods (Chatbot, ChatbotViewer, and ChatFrame).
+ * ChatController data members (Chatbot, ChatbotViewer, and ChatFrame).
  */
 {
 	private Chatbot stupidBot;

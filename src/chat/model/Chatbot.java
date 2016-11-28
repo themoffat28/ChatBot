@@ -11,11 +11,16 @@ import java.util.ArrayList;
  */
 
 /**
- * Data members of Chatbot (memesList, politicalTopicList, userName, and content).
+ * Class Chatbot.
  * @author bmof0507
  *
  */
 public class Chatbot
+/**
+ * Data members of Chatbot (memesList, politicalTopicList, userName, and content).
+ * @author bmof0507
+ *
+ */
 {
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicalTopicList;
@@ -220,6 +225,9 @@ public class Chatbot
 		return quitCheck;
 	}
 
+	/**
+	 * Method buildMemesList assigns values to the memesList data member.
+	 */
 	private void buildMemesList()
 	{
 		memesList.add("memes");
@@ -244,6 +252,9 @@ public class Chatbot
 		memesList.add("gamestop");
 	}
 
+	/** 
+	 * Method buildPoliticalTopicsList assigns values to the politicalTopicsList data member.
+	 */
 	private void buildPoliticalTopicsList()
 	{
 		politicalTopicList.add("Democrat");

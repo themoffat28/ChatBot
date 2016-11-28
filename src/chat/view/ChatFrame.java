@@ -4,11 +4,23 @@ import javax.swing.JFrame;
 import chat.controller.ChatController;
 import java.awt.Dimension;
 
+/**
+ * Class ChatFrame.
+ * @author bmof0507
+ *
+ */
 public class ChatFrame extends JFrame
 {
+	/**
+	 * ChatFrame data members.
+	 */
 	private ChatController baseController;
 	private ChatPanel appPanel;
 	
+	/**
+	 * Method ChatFrame assigns baseController and ChatPanel.
+	 * @param baseController
+	 */
 	public ChatFrame(ChatController baseController)
 	{
 		super();
@@ -18,6 +30,9 @@ public class ChatFrame extends JFrame
 		setupFrame();
 	}
 	
+	/**
+	 * Method setupFrame sets up frame.
+	 */
 	private void setupFrame()
 	{
 		this.setContentPane(appPanel);

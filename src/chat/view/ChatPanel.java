@@ -6,14 +6,26 @@ import chat.controller.ChatController;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Class ChatPanel (inherits JPanel)
+ * @author bmof0507
+ *
+ */
 public class ChatPanel extends JPanel
 {
+	/**
+	 * ChatPanel data members.
+	 */
 	private ChatController baseController;
 	private SpringLayout baseLayout;
 	private JTextArea chatDisplay;
 	private JTextField chatField;
 	private JButton chatButton;
 	
+	/**
+	 * Method ChatPanel sets up display.
+	 * @param baseController
+	 */
 	public ChatPanel(ChatController baseController)
 	{
 		super();
@@ -32,6 +44,9 @@ public class ChatPanel extends JPanel
 		setupListeners();
 	}
 	
+	/**
+	 * Method setupChatDisplay sets up the chat display.
+	 */
 	private void setupChatDisplay()
 	{
 		chatDisplay.setEditable(false);
@@ -40,6 +55,9 @@ public class ChatPanel extends JPanel
 		chatDisplay.setLineWrap(true);
 	}
 	
+	/**
+	 * Method setupPanel sets up the panel.
+	 */
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
@@ -49,6 +67,9 @@ public class ChatPanel extends JPanel
 		this.add(chatField);
 	}
 	
+	/**
+	 * Method setupLayout holds useless information consisting of positioning information.
+	 */
 	private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.NORTH, chatDisplay, 78, SpringLayout.NORTH, this);
@@ -59,6 +80,9 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.EAST, chatField, -62, SpringLayout.EAST, this);
 	}
 	
+	/**
+	 * Method setupListeners watches for ActionEvents and ActionListeners.
+	 */
 	private void setupListeners()
 	{
 		chatButton.addActionListener(new ActionListener()

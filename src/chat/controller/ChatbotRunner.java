@@ -1,5 +1,10 @@
 package chat.controller;
 
+/**
+ * Class ChatbotRunner.
+ * @author bmof0507
+ *
+ */
 public class ChatbotRunner
 /**
  * Runner and initialization statement to begin project.
