@@ -21,6 +21,7 @@ public class ChatPanel extends JPanel
 	private JTextArea chatDisplay;
 	private JTextField chatField;
 	private JButton chatButton;
+	private JLabel chatTitle;
 	
 	/**
 	 * Method ChatPanel sets up display.
@@ -35,6 +36,8 @@ public class ChatPanel extends JPanel
 		chatDisplay = new JTextArea(5,25);
 		chatField = new JTextField(25);
 		chatButton = new JButton("Chat with the bot fam");
+		chatTitle = new JLabel("Chatbot");
+		
 		
 		
 		
@@ -65,6 +68,7 @@ public class ChatPanel extends JPanel
 		this.add(chatButton);
 		this.add(chatDisplay);
 		this.add(chatField);
+		this.add(chatTitle);
 	}
 	
 	/**
@@ -78,6 +82,8 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.EAST, chatButton, -131, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, chatField, 23, SpringLayout.SOUTH, chatDisplay);
 		baseLayout.putConstraint(SpringLayout.EAST, chatField, -62, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, chatTitle, -23, SpringLayout.NORTH, chatDisplay);
+		baseLayout.putConstraint(SpringLayout.EAST, chatTitle, -191, SpringLayout.EAST, this);
 	}
 	
 	/**
