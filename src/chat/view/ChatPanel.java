@@ -2,7 +2,7 @@ package chat.view;
 
 import javax.swing.*;
 import java.awt.Color;
-import chat.controller.ChatController;
+import chat.controller.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -77,6 +77,7 @@ public class ChatPanel extends JPanel
 		this.setBackground(Color.RED);
 		this.add(chatButton);
 		this.add(saveButton);
+		saveButton.setToolTipText("To save as a certain filename, enter it in the chatField then press save!");
 		this.add(loadButton);
 		this.add(postButton);
 		this.add(searchButton);
@@ -130,6 +131,15 @@ public class ChatPanel extends JPanel
 				chatDisplay.setText(currentText + "\nYou said: " + personWords + "\n"+ "Chatbot says: " + chatbotResponse + "\n");
 				chatDisplay.setCaretPosition(chatDisplay.getCaretPosition());
 				chatField.setText("");
+			}
+		});
+		
+		saveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String fileName = chatField.getText();
+				FileController.saveFile(baseController, fileName, chatDisplay.getText());
 			}
 		});
 	}
