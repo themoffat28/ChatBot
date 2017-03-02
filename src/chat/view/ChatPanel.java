@@ -47,8 +47,6 @@ public class ChatPanel extends JPanel
 		searchButton = new JButton("Search Twitter");
 		chatTitle = new JLabel("Chatbot");
 		chatPane = new JScrollPane();
-	
-		
 		
 		setupChatDisplay();
 		setupPanel();
