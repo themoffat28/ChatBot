@@ -79,6 +79,7 @@ public class ChatPanel extends JPanel
 		this.add(saveButton);
 		saveButton.setToolTipText("To save as a certain filename, enter it in the chatField then press save!");
 		this.add(loadButton);
+		loadButton.setToolTipText("To load a certain conversation, enter the fileName in the chatField (not the .txt part) and press load!");
 		this.add(postButton);
 		this.add(searchButton);
 //		this.add(chatDisplay);
@@ -142,5 +143,16 @@ public class ChatPanel extends JPanel
 				FileController.saveFile(baseController, fileName, chatDisplay.getText());
 			}
 		});
+		
+		loadButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String fileName = chatField.getText();
+				String saved = FileController.readFile(baseController, fileName + ".txt");
+				chatDisplay.setText(saved);
+			}
+		});
+		
 	}
 }
