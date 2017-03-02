@@ -142,6 +142,12 @@ public class ChatController
 		
 		return randomTopic;
 	}
+	
+	public void handleErrors(Exception currentException)
+	{
+		display.displayMessage("An error has occured. Details provided next.");
+		display.displayMessage(currentException.getMessage());
+	}
 
 	/**
 	 * Method getBaseFrame returns appFrame.
