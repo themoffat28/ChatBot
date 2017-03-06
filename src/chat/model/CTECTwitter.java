@@ -20,7 +20,7 @@ public class CTECTwitter
 	{
 		try
 		{
-			chatbotTwitter.updateStatus("Test Post");
+			chatbotTwitter.updateStatus(tweet);
 		}
 		catch(TwitterException tweetError)
 		{

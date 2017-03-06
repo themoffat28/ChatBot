@@ -81,6 +81,7 @@ public class ChatPanel extends JPanel
 		this.add(loadButton);
 		loadButton.setToolTipText("To load a certain conversation, enter the fileName in the chatField (not the .txt part) and press load!");
 		this.add(postButton);
+		postButton.setToolTipText("To post to Twitter, enter Tweet in the text box and press post to Twitter!");
 		this.add(searchButton);
 //		this.add(chatDisplay);
 		this.add(chatPane);
