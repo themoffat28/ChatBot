@@ -1,6 +1,7 @@
 package chat.controller;
 
 import chat.model.Chatbot;
+import chat.model.*;
 import chat.view.ChatbotViewer;
 import chat.view.ChatFrame;
 
@@ -17,6 +18,7 @@ public class ChatController
 	private Chatbot stupidBot;
 	private ChatbotViewer display;
 	private ChatFrame appFrame;
+	private CTECTwitter twitterBot;
 	
 	/**
 	 * stupidBot and appFrame are defined. 
@@ -24,6 +26,7 @@ public class ChatController
 	public ChatController()
 	{
 		stupidBot = new Chatbot("Automated intelligence conversation machine");
+		twitterBot = new CTECTwitter(this);
 		appFrame = new ChatFrame(this);
 	}
 	
@@ -147,6 +150,11 @@ public class ChatController
 	{
 		display.displayMessage("An error has occured. Details provided next.");
 		display.displayMessage(currentException.getMessage());
+	}
+	
+	public void useTwitter(String text)
+	{
+		twitterBot.sendTweet(text);
 	}
 
 	/**
