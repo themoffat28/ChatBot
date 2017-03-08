@@ -83,6 +83,7 @@ public class ChatPanel extends JPanel
 		this.add(postButton);
 		postButton.setToolTipText("To post to Twitter, enter Tweet in the text box and press post to Twitter!");
 		this.add(searchButton);
+		searchButton.setToolTipText("Enter a username in the TextField (without the @) and press search!");
 //		this.add(chatDisplay);
 		this.add(chatPane);
 		this.add(chatField);
