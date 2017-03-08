@@ -163,5 +163,14 @@ public class ChatPanel extends JPanel
 			}
 		});
 		
+		searchButton.addActionListener(new ActionListener()
+				{
+			public void actionPerformed(ActionEvent click)
+			{
+				String results = baseController.searchTwitterUser(chatField.getText());
+				chatDisplay.setText(results + chatDisplay.getText());
+			}
+				});
+		
 	}
 }
