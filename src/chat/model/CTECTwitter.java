@@ -7,6 +7,7 @@ import twitter4j.Twitter;
 import twitter4j.Status;
 import twitter4j.Paging;
 import java.util.List;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -98,13 +99,14 @@ public class CTECTwitter
 		removeAllBoringWords();
 		removeEmptyText();
 		
-		results += "There are " + tweetedWords.size() + " words in the tweets from " + user;
+		results += calculatePopularWordAndCount();
+//		results += "There are " + tweetedWords.size() + " words in the tweets from " + user;
  		return results;
 	}
 	
 	private void removeEmptyText()
 	{
-		for(int index = 0; index < tweetedWords.size(); index++)
+		for(int index = tweetedWords.size() -1; index>= 0; index--)
 		{
 			if(tweetedWords.get(index).trim().equals(""))
 			{
@@ -137,7 +139,7 @@ public class CTECTwitter
 		for(Status currentStatus : searchedTweets)
 		{
 			String tweetText = currentStatus.getText();
-			String [] tweetWords = tweetText.split("");
+			String [] tweetWords = tweetText.split(" ");
 			for(int index = 0; index < tweetWords.length; index++)
 			{
 				tweetedWords.add(tweetWords[index]);
@@ -157,7 +159,7 @@ public class CTECTwitter
 			int currentPopularity = 0;
 			for(int searched = 1; searched < tweetedWords.size(); searched++)
 			{
-				if(tweetedWords.get(index).equalsIgnoreCase(mostPopular))
+				if(tweetedWords.get(index).equalsIgnoreCase(tweetedWords.get(searched)) && !tweetedWords.get(index).equals(mostPopular))
 				{
 					currentPopularity++;
 				}
@@ -170,7 +172,7 @@ public class CTECTwitter
 			}
 		}
 		
-		information = "The most popular word is: " + mostPopular + ", and it occured " + popularCount + "times out of " + tweetedWords.size() + ", AKA " + ((double) popularCount)/tweetedWords.size() + "%";
+		information = mostPopular + ", and it occured " + popularCount + " times out of " + tweetedWords.size() + ", AKA " + (DecimalFormat.getPercentInstance().format(((double) popularCount)/tweetedWords.size()));
 				
 		return information;
 				
