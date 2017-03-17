@@ -6,6 +6,11 @@ import twitter4j.TwitterFactory;
 import twitter4j.Twitter;
 import twitter4j.Status;
 import twitter4j.Paging;
+import twitter4j.Query;
+import twitter4j.QueryResult;
+import twitter4j.GeoLocation;
+import twitter4j.GeoQuery;
+
 import java.util.List;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -176,6 +181,47 @@ public class CTECTwitter
 				
 		return information;
 				
+	}
+	
+//	private void removeMentions()
+//	{
+//		for(index = 0; index < wordList.size(); index++)
+//		{
+//			if(wordList.get(index).substring(0,1).equals("@"))
+//			{
+//				wordlist.remove(index);
+//				index--;
+//			}
+//		}
+//	}
+	
+	public String investigation()
+	{
+		String results = "";
+		int tweetNumber = 0;
+		
+		Query query = new Query("America");
+		query.setCount(100);
+		query.setGeoCode(new GeoLocation(49.8152730, 6.1295830), 1000, query.MILES);
+		query.setSince("2017-1-1");
+		try
+		{
+			
+			QueryResult result = chatbotTwitter.search(query);
+			for (Status tweet : result.getTweets())
+			{
+				if(tweet.getText().contains("America"))
+				{
+					tweetNumber++;
+				}
+			}
+		}
+		catch (TwitterException error)
+		{
+			error.printStackTrace();
+		}
+		results = "The number of tweets containing 'America' is " + tweetNumber;
+		return results;
 	}
 }
 
